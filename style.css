@@ -1,0 +1,24 @@
+body{
+    margin: 0;
+    background: linear-gradient(to right, #00B2FF , #26CFC5);
+    margin-top: 20px;
+}
+h1{
+    font-family: inter;
+    text-align: center;
+    color: white;
+    font-size: 50px;
+}
+p{
+    font-family: inter;
+    font-size: 18px;
+}
+select{ 
+    
+    border:groove #26CFC5 ;
+    height: 37px;
+    
+}
+input{
+    border: #26CFC5;
+}
