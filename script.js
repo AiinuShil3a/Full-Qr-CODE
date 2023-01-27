@@ -1,21 +1,41 @@
 function generateQRCode() {
   let name = document.getElementById("name").value;
   var radio = document.querySelector('input[name="time"]:checked'); 
+  let nummedic = document.getElementById("num").value;
+  let dropdown = document.getElementById("dropdown").value;
+  let numday = document.getElementById("numday").value;
+  var array =  $("input[name='day']:checked").map(function(){
+        return this.value;
+      }).get()
 
-  if(radio) console.log(radio.value);
-
+  console.log(name)
+  console.log(radio.value)
+  console.log(nummedic)
+  console.log(dropdown)
+  console.log(numday)
+  console.log(array)
   
-  if (name && radio) {
-      const data = { //ด้านหน้าคือหัวข้อที่อยู่ใน DB ด้านหลังคือค่าที่เราเชตไว้ดูด้านบน ^^^
-        name: name.padEnd(20), 
-        time: radio.value, 
-        
-
+  if (name && radio && nummedic && dropdown != "" && numday && array) {
+      let fusion = nummedic + " " + dropdown;
+      const data = { 
+        name: name, 
+        time: radio.value,
+        timeday: array,
+        medic: fusion,
+        numday: numday
       };
       let qrcodeContainer = document.getElementById("qrcode");
       qrcodeContainer.innerHTML = "";
 
-      new QRCode(qrcodeContainer, JSON.stringify(data));
+      new QRCode(qrcodeContainer, {
+        text: JSON.stringify(data),
+        //ห้ามเปลี่ยนขนาดลดลงเนื่องจากข้อมูลมีจำนวนมากต้องใช้ขนาดที่เหมาะสม
+        width: 350,
+        height: 350,
+        colorDark : "#000000",
+        colorLight : "#ffffff",
+        correctLevel : 3
+    });
 
       
       let download = document.createElement("button");
@@ -42,6 +62,6 @@ function generateQRCode() {
 
       document.getElementById("qrcode-container").style.display = "block";
     } else {
-      alert("Please enter a valid URL");
+      alert("กรุณากรอกข้อมูลทุกอย่างให้ครบ!!");
     }
 }

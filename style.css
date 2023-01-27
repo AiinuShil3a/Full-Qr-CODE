@@ -9,6 +9,7 @@ h1{
     color: white;
     font-size: 50px;
 }
+
 p{
     font-family: inter;
     font-size: 18px;
@@ -71,12 +72,12 @@ user-input {
 .qrcode img{
   margin: 0 auto;
   box-shadow: 0 0 10px rgba(67, 67, 68, 0.25);
-  padding: 170px;
+  padding: 120px;
 }
 
 .qrcode button  {
     background: linear-gradient(to right, #00B2FF , #26CFC5);
-    width: 37.3rem;
+    width: 36.9rem;
     height: 3rem;
     text-decoration: none;
     justify-content: center;
